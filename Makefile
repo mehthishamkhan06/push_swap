@@ -5,9 +5,9 @@
 SRCS			=	parser.c ft_atoi.c
 OBJS			= $(SRCS:.c=.o)
 
-CC				= gcc
+CC				= cc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I. -g3 #-fsanitize=address 
+CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= push_swap
 
