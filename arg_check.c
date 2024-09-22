@@ -1,5 +1,10 @@
 #include "push_swap.h"
 
+
+/*
+checks for valid arguments, if arguments end with spaces or tabs,
+it will return false, inciting error.
+*/
 bool	valid_argument_check(char *argv[])
 {
         int i;
@@ -99,7 +104,7 @@ int	is_duplicate_str(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_atoi_modified(argv, argv[i]) == ft_atoi_modified(argv, argv[j]))
+			if (ft_atoi_list(argv, argv[i]) == ft_atoi_list(argv, argv[j]))
 				return (1);
 			j++;
 		}

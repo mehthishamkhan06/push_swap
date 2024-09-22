@@ -13,4 +13,11 @@ typedef struct s_stack {
 	int				data;
 }	t_stack;
 
+/*
+push_swap.c
+*/
+void			sorter(t_node **a, t_node **b, t_node **temp)
+int				ft_start(t_node **a, t_node **b, t_node **temp):
+static	void	push_swap(int argc, char *args);
+
 #endif
