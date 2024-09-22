@@ -8,16 +8,16 @@ int main(int argc, char *argv[])
 
 	i = 1;
 	args = NULL;
-	flag = 1;
+	flag = 0;
 	if (argc > 3)
 	{
-		if (arg_check == 0)
+		if (!valid_argument_check(argv))
 			return (1);
 		i = 1;
 		while(argv[i])
 		{
 			args = ft_strjoin(args, " ", flag);
-			flag = 0;
+			flag = 1;
 			args = ft_strjoin(args, argv[i], flag);
 			i++;
 		}

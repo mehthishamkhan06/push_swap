@@ -31,8 +31,8 @@ static	void	push_swap(int argc, char *args)
 	temp = NULL;
 	if (argc > 3)
 	{
-		ft_initialize(&a, args);
-		free (args);
+		ft_initialize_s(&a, args);
+		free(args);
 		ft_start(&a, &b, &temp);
 	}
 }
