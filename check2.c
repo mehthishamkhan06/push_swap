@@ -11,7 +11,7 @@ bool    is_alpha_string(char **argv)
 	{
 		while(argv[i][j])
 		{
-			if (isalpha(argv[i][j]))
+			if (ft_isalpha(argv[i][j]))
 				return (true);
 			j++;
 		}
@@ -54,11 +54,40 @@ bool	invalid_input(char **argv)
 		{
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
-			if (!isdigit(argv[i][j]))
+			if (!ft_isdigit(argv[i][j]))
 				return (true);
 			j++;
 		}
 		i++;
 	}
 	return (false);
+}
+
+void	ft_error_continues(char *args)
+{
+	int		i;
+	char	**tab;
+
+	i = 0;
+	if (args[0] == 0)
+	{
+		free(args);
+		exit(0);
+	}
+	tab = ft_split(args, ' ');
+	if (invalid_input(tab) || is_alpha_string(tab) || is_duplicate_str(tab))
+	{
+		while (tab[i])
+		{
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
+		free(args);
+		write (2, "Error\n", 6);
+		exit(1);
+	}
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }

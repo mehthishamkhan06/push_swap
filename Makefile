@@ -1,8 +1,6 @@
-# SRCS			=	push_swap.c ft_split.c ft_atois.c moves.c moves2.c \
-# 					sorts.c sorts2.c list_fns.c list_fns2.c error.c error2.c \
-# 					sort_chunks.c init_lst.c \
+SRCS			=	push_swap.c ft_split.c ft_atois.c arg_check.c check2.c initializer.c \
+					initialize_alias.c sort_check.c sort1.c sorter.c
 
-SRCS			=	parser.c ft_atoi.c
 OBJS			= $(SRCS:.c=.o)
 
 CC				= cc
@@ -14,14 +12,18 @@ NAME			= push_swap
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+				@echo "push_swap created"
 
 clean:
-				$(RM) $(OBJS)
+				@$(RM) $(OBJS)
+				@echo "cleaned"
 
 fclean:			clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
+				@echo "cleaned"
 
 re:				fclean $(NAME)
+				@echo "recreated"
 
 .PHONY:			all clean fclean re bonus

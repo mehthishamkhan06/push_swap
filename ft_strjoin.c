@@ -1,6 +1,6 @@
 #include "Libft.h"
-
-char	*ft_strjoin(char *s1, char *s2, int flag)
+#include "push_swap.h"
+char	*ft_strjoin(char *s1, char *s2, int check_free)
 {
     char	*str;
     int		i;
@@ -21,7 +21,7 @@ char	*ft_strjoin(char *s1, char *s2, int flag)
     while (s2[j])
         str[i++] = s2[j++];
     str[i] = '\0';
-    if (flag == 1)
+    if (check_free == 1)
         free(s1);
     return (str);
 }

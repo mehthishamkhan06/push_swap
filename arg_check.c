@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-
 /*
 checks for valid arguments, if arguments end with spaces or tabs,
 it will return false, inciting error.
@@ -45,7 +44,5 @@ void arg_error(char *args)
 					exit(0);
 			}
 		}
-		arg_error_continue(args);
+		ft_error_continues(args);
 }
-
-

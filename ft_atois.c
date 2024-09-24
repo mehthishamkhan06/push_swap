@@ -37,7 +37,7 @@ int	ft_atoi(char *str)
 	sign = 1;
 	i = 0;	
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		str[i++];
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign = -1;
@@ -77,4 +77,32 @@ void	ft_atoi_list_overflow(long long answer, int sign, char **tab)
 		free_list(tab);
 	if (answer >= LLONG_MAX && sign == 1)
 		free_list(tab);
+}
+int	ft_atoi_list(char **tab, char *str)
+{
+	long long		answer;
+	long long		temp_answer;
+	int			sign;
+	int			i;
+
+	answer = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign *= -1;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		temp_answer = answer;
+		answer = answer * 10 + str[i++] - '0';
+		if (temp_answer > answer)
+		{
+			free_list(tab);
+			exit(0);
+		}
+	}
+	ft_atoi_list_overflow(answer, sign, tab);
+	return (answer * sign);
 }

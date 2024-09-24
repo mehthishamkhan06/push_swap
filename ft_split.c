@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+#include "push_swap.h"
 static int	w_count(const char *str, char c)
 {
 	int	i;
