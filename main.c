@@ -1,21 +1,25 @@
 #include "push_swap.h"
 
-static	void	push_swap(int argc, char *args)
-{
-	t_node	*a;
-	t_node	*b;
-	t_node	*temp;
 
-	a = NULL;
-	b = NULL;
-	temp = NULL;
-	if (argc > 1)
-	{
-		initialize_stack(&a, args);
-		free(args);
-		start_sorting(&a, &b, &temp);
-	}
-}
+int	valid_argument_check(char *argv[]);
+void arg_error(char *args);
+char	*ft_strjoin(char *s1, char *s2, int check_free);
+// static	void	push_swap(int argc, char *args)
+// {
+// 	t_node	*a;
+// 	t_node	*b;
+// 	t_node	*temp;
+
+// 	a = NULL;
+// 	b = NULL;
+// 	temp = NULL;
+// 	if (argc > 1)
+// 	{
+// 		initialize_stack(&a, args);
+// 		free(args);
+// 		start_sorting(&a, &b, &temp);
+// 	}
+// }
 int main(int argc, char *argv[])
 {
 	int		i;
@@ -27,7 +31,7 @@ int main(int argc, char *argv[])
 	check_free = 0;
 	if (argc > 1)
 	{
-		if (valid_argument(argv) == 0)
+		if (valid_argument_check(argv) == 0)
 			return(1);
 		while (argv[i])
 		{
@@ -37,7 +41,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 		arg_error(args);
-		push_swap(argc, args);
+		// push_swap(argc, args);
 	}
 	return(0);
 }

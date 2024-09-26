@@ -13,6 +13,39 @@ void    create_node(t_node **head, int data)
     *head = new_node;
 }
 
+void	del_first_node(t_node **n)
+{
+	t_node	*tmp;
+
+	if ((*n) == NULL)
+		return ;
+	tmp = (*n);
+	if (tmp == (*n)->next)
+	{
+		free((*n));
+		(*n) = NULL;
+		return ;
+	}
+	(*n)->next->prev = (*n)->prev;
+	(*n)->prev->next = (*n)->next;
+	(*n) = (*n)->next;
+	free(tmp);
+}
+
+void    append_at_start(t_node **tail, int data)
+{
+    t_node *new_node;
+    t_node *start;
+
+    create_node(&new_node, data);
+    if (!(*tail))
+        return ;
+    start = (*tail)->prev;
+    new_node -> next = *tail;
+    new_node -> prev = start;
+    start -> next = new_node;
+    (*tail) = new_node;
+}
 void    append_at_end(t_node **head, int data)
 {
     t_node *new_node;

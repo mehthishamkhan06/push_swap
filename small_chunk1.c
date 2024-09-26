@@ -51,7 +51,6 @@ void	sort_small_chunk(t_node **tempa, t_node **b, int len)
 		sort_three(tempa);
 	else if (len == 4)
 		sort_four(tempa, b);
-	/*
-	to be continued
-	*/
+	else
+		sort_more(tempa, b);
 }

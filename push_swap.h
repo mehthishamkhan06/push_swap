@@ -27,8 +27,8 @@ int				start_sorting(t_node **a, t_node **b, t_node **temp);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2, int flag);
 int		ft_isdigit(int c);
-char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *src);
+char	**ft_split(char *s, char c);
+char	*ft_strdup( char *src);
 int		ft_isalpha(int c);
 
 int	valid_argument_check(char *argv[]);

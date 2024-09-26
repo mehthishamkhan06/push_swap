@@ -1,6 +1,6 @@
 #include "push_swap.h"
 #include "push_swap.h"
-static int	w_count(const char *str, char c)
+static int	w_count(char *str, char c)
 {
 	int	i;
 	int	not_seen;
@@ -26,7 +26,7 @@ static int	w_count(const char *str, char c)
 	return (count);
 }
 
-char	**splitter(char const *s, char c, char **str, int *i)
+char	**splitter(char *s, char c, char **str, int *i)
 {
 	while (i[0] < i[4])
 	{
@@ -55,7 +55,7 @@ char	**splitter(char const *s, char c, char **str, int *i)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**str;
 	int		i[5];

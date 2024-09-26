@@ -1,6 +1,8 @@
-#include "libft.h"
 #include "push_swap.h"
-char	*ft_strdup(const char *src)
+
+
+
+char	*ft_strdup(char *src)
 {
 	int		i;
 	char	*res;
