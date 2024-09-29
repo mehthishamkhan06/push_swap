@@ -1,4 +1,6 @@
 #include "push_swap.h"
+
+
 char	*ft_strjoin(char *s1, char *s2, int check_free)
 {
     char	*str;

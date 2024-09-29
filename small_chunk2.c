@@ -4,9 +4,9 @@
 
 void	sort_four_common(t_node **a, t_node	**b)
 {
-	pb(a);
+	pb(a, b);
 	sort_three(a);
-	pa(a);
+	pa(a, b);
 }
 
 void sort_four_continuation(t_node **a, t_node **b, int pos)
@@ -15,14 +15,14 @@ void sort_four_continuation(t_node **a, t_node **b, int pos)
 	{
 		rra(a);
 		rra(a);
-		if (is_sorted(*a))
+		if (already_sorted(*a))
 			return ;
 		sort_four_common(a, b);
 	}
 	else if(pos == 4)
 	{
 		ra(a);
-		if (is_sorted(*a))
+		if (already_sorted(*a))
 			return ;
 		sort_four_common(a, b);
 	}
@@ -32,14 +32,14 @@ void    sort_four(t_node **a, t_node **b)
 	int	min;
 	int	pos;
 
-	min = get_min(*a);
+	min = get_minimum(*a);
 	pos = get_pos(*a, min);
 	if (pos == 1)
 		sort_four_common(a, b);
 	else if (pos == 2)
 	{
 		sa(a);
-		if (is_sorted(*a))
+		if (already_sorted(*a))
 			return ;
 		sort_four_common(a, b);
 	}

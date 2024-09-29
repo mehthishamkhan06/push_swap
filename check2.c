@@ -5,7 +5,7 @@ bool    is_alpha_string(char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (argv[i])
 	{
@@ -52,7 +52,7 @@ bool	invalid_input(char **argv)
 	{
 		while (argv[i][j])
 		{
-			if (argv[i][j] == '-' || argv[i][j] == '+')
+			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
 				j++;
 			if (!ft_isdigit(argv[i][j]))
 				return (true);

@@ -41,8 +41,9 @@ void    append_at_start(t_node **tail, int data)
     if (!(*tail))
         return ;
     start = (*tail)->prev;
-    new_node -> next = *tail;
+    new_node -> next = (*tail);
     new_node -> prev = start;
+    (*tail) -> prev = new_node;
     start -> next = new_node;
     (*tail) = new_node;
 }
@@ -57,7 +58,7 @@ void    append_at_end(t_node **head, int data)
     last = (*head)->prev;
     last -> next = new_node;
     new_node -> prev = last;
-    new_node -> next = *head;
+    new_node -> next = (*head);
     (*head) -> prev = new_node;
 }
 /*

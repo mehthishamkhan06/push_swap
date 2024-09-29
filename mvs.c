@@ -37,7 +37,7 @@ void   pa(t_node **a, t_node **b)
 
     if (!(*b))
         return ;
-    tmp = (*b) -> data;
+    tmp = (*b);
     del_first_node(&(*b));
     if (!(*a))
         create_node(&(*a), tmp -> data);
@@ -48,11 +48,11 @@ void   pa(t_node **a, t_node **b)
 
 void  pb(t_node **a, t_node **b)
 {
-    t_node *tmp;
+    t_node  *tmp;
 
     if (!(*a))
         return ;
-    tmp = (*a) -> data;
+    tmp = (*a);
     del_first_node(&(*a));
     if (!(*b))
         create_node(&(*b), tmp -> data);

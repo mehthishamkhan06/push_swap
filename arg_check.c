@@ -33,13 +33,13 @@ void arg_error(char *args)
 {
         int i;
     	
-		i = 1;
+		i = 0;
 		while (args[i] == ' ' || args[i] == '\t')
 		{
 			i++;
 			if (!args[i])
 			{
-					write(1, "Error\n", 6);
+					write(2, "Error\n", 6);
 					free(args);
 					exit(0);
 			}

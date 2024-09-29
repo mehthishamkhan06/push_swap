@@ -43,14 +43,14 @@ void	sort_three(t_node **a)
 	sort_three_continue(a);
 }
 
-void	sort_small_chunk(t_node **tempa, t_node **b, int len)
+void	sort_s_chunk(t_node **a, t_node **b, int len)
 {
 	if (len == 2)
-		sort_two(tempa);
-	else if (len == 3)
-		sort_three(tempa);
-	else if (len == 4)
-		sort_four(tempa, b);
-	else
-		sort_more(tempa, b);
+		sort_two(a);
+	if (len == 3)
+		sort_three(a);
+	if (len == 4)
+		sort_four(a, b);
+	if (len >= 5 && len <= 34)
+		sort_more(a, b);
 }

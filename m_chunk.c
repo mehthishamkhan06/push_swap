@@ -18,6 +18,32 @@ void   push_chunk(t_node **a, t_node **b, int i, int max)
 			ra(a);
 	}	
 }
+
+void	sort_pushed_chunk(t_node **a, t_node **b)
+{
+	int len;
+	int max;
+	int pos;
+	int mid;
+
+	while((len = list_size(*b)) > 2)
+	{
+		max = get_maximum(*b);
+		pos = get_pos(*b, max);
+		mid = len / 2;
+		if ((*b) -> data == max)
+			pa(a, b);
+		else if (pos <= mid)
+			rb(b);
+		else
+			rrb(b);
+	}
+	if (len == 2)
+		if ((*b) -> data < (*b) -> next -> data)
+				sb(b);
+	pa(a,b);
+	pa(a,b);
+}
 void    sort_m_chunk(t_node **a, t_node **b)
 {
 	int	len;
@@ -41,4 +67,27 @@ void    sort_m_chunk(t_node **a, t_node **b)
 		sort_four(a, b);
 	else
 		sort_more(a, b);
+	sort_pushed_chunk(a, b);
+}
+
+void	sort_l_chunk(t_node **a, t_node **b)
+{
+	int	size;
+	int	min;
+	int	max;
+	int	i;
+
+	i = 0;
+	size = list_size(*a);
+	min = size / 9;
+	min--;
+	max = min;
+	while (max < size - 11)
+	{
+		push_chunk(a, b, i - 1, max + 4);
+		i = max + 2;
+		max += min;
+	}
+	sort_more(a, b);
+	sort_pushed_chunk(a, b);
 }
