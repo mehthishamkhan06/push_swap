@@ -1,69 +1,85 @@
 #include "push_swap.h"
 
-
-void   push_chunk(t_node **a, t_node **b, int i, int max)
+void	push_chunk(t_node **a, t_node **b, int min, int max)
 {
-	int len;
-	len = 0;
-	while(len < max + 1)
+	int	size;
+
+	while (1)
 	{
-		if ((*a) -> data >= i && (*a) -> data <= max)
+		if ((*a)->data >= min && (*a)->data <= max)
 		{
 			pb(a, b);
-			len++;
-			if ((*b) -> data <= (i + max / 2))
+			if ((*b)->data <= (min + max) / 2)
 				rb(b);
 		}
 		else
 			ra(a);
-	}	
+		if (*b)
+		{
+			size = list_size(*b);
+			if (size == max + 1)
+				break ;
+		}
+	}
 }
-
 void	sort_pushed_chunk(t_node **a, t_node **b)
 {
-	int len;
-	int max;
-	int pos;
-	int mid;
+	int	size;
+	int	max;
+	int	pos;
+	int	mid;
 
-	while((len = list_size(*b)) > 2)
+	while (1)
 	{
 		max = get_maximum(*b);
 		pos = get_pos(*b, max);
-		mid = len / 2;
-		if ((*b) -> data == max)
+		size = list_size(*b);
+		mid = size / 2;
+		if ((*b)->data == max)
 			pa(a, b);
 		else if (pos <= mid)
 			rb(b);
 		else
 			rrb(b);
+		if (size == 2)
+			break ;
 	}
-	if (len == 2)
-		if ((*b) -> data < (*b) -> next -> data)
-				sb(b);
-	pa(a,b);
-	pa(a,b);
+	if ((*b)->data < (*b)->next->data)
+		sb(b);
+	pa(a, b);
+	pa(a, b);
 }
-void    sort_m_chunk(t_node **a, t_node **b)
+
+/**
+ * @brief Sort the medium size of chunk. From 35 to 134
+ * 
+ * @param a 
+ * @param b 
+ */
+
+void	sort_m_chunk(t_node **a, t_node **b)
 {
-	int	len;
+	int	size;
 	int	min;
 	int	max;
-	int	temp;
+	int	tmp;
 	int	i;
 
-	len = list_size(*a);
 	i = 0;
-	min = len / 4;
+	size = list_size(*a);
+	min = size / 4;
+	min--;
 	max = min;
-	while (max < len)
+	// printf("max : %d", max);
+	// printf("max : %d", size);
+	while (max < size)
 	{
 		push_chunk(a, b, i, max);
 		i = max + 1;
-		temp = max;
+		tmp = max;
 		max += min;
 	}
-	if (len - temp == 4)
+	if (size - tmp == 4)
 		sort_four(a, b);
 	else
 		sort_more(a, b);

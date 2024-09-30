@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 13:23:58 by mohkhan           #+#    #+#             */
-/*   Updated: 2024/06/24 13:24:00 by mohkhan          ###   ########.fr       */
+/*   Created: 2024/06/24 12:22:02 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/06/24 12:22:05 by mohkhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-#include "push_swap.h"
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+#include "../push_swap.h"
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
+
+int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }

@@ -91,11 +91,12 @@ void    initialize_stack(t_node **a, char *args)
     i = 0;
     j = 1;
     array = ft_split(args, ' ');
-    create_node(&(*a), ft_atoi_list(array, array[i]));
+    create_node(&(*a), ft_atoi_list(array, array[0]));
     while (array[j])
     {
         append_at_end(a, ft_atoi_list(array, array[j]));
         j++;
+        // printf("args: %d\n", (*a)->data);
     }
     while(array[i])
     {

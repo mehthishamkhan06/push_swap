@@ -3,23 +3,21 @@
 
 void    sa(t_node **a)
 {
-    t_node *tmp;
+    int tmp;
 
-    tmp = *a;
-    (*a) = (*a) -> next;
-    tmp -> next = (*a) -> next;
-    (*a) -> next = tmp;
+    tmp = (*a) -> data;
+    (*a) -> data = (*a) -> next -> data;
+    (*a) -> next -> data = tmp;
     write(1, "sa\n", 3);
 }
 
 void   sb(t_node **b)
 {
-    t_node *tmp;
+    int tmp;
 
-    tmp = *b;
-    (*b) = (*b) -> next;
-    tmp -> next = (*b) -> next;
-    (*b) -> next = tmp;
+    tmp = (*b) -> data;
+    (*b) -> data= (*b) -> next -> data;
+    (*b) -> next -> data = tmp;
     write(1, "sb\n", 3);
 }
 
@@ -33,30 +31,30 @@ void   ss(t_node **a, t_node **b)
 
 void   pa(t_node **a, t_node **b)
 {
-    t_node *tmp;
+    int tmp;
 
     if (!(*b))
         return ;
-    tmp = (*b);
+    tmp = (*b) -> data;
     del_first_node(&(*b));
     if (!(*a))
-        create_node(&(*a), tmp -> data);
+        create_node(&(*a), tmp);
     else
-        append_at_end(&(*a), tmp -> data);
+        append_at_start(&(*a), tmp);
     write(1, "pa\n", 3);
 }
 
 void  pb(t_node **a, t_node **b)
 {
-    t_node  *tmp;
+    int tmp;
 
     if (!(*a))
         return ;
-    tmp = (*a);
+    tmp = (*a) -> data;
     del_first_node(&(*a));
     if (!(*b))
-        create_node(&(*b), tmp -> data);
+        create_node(&(*b), tmp);
     else
-        append_at_start(&(*b), tmp -> data);
+        append_at_start(&(*b), tmp);
     write(1, "pb\n", 3);
 }

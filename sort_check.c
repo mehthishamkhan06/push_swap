@@ -14,17 +14,13 @@ int	already_sorted(t_node *node)
 	temp = node;
 	length = list_size(node);
 	i = 0;
-	while (i < length)
-	{
-		if (temp->data > temp->next->data)
-			break ;
-		temp = temp->next;
-		i++;
-	}
-	if (i == length)
-		return (0);
-	else
-		return (1);
+	while (temp->next != node)
+    {
+        if (temp->data > temp->next->data)
+            return (0);
+        temp = temp->next;
+    }
+    return (1);
 }
 
 void	ft_free(t_node **node)

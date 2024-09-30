@@ -9,6 +9,7 @@ bool    is_alpha_string(char **argv)
 	j = 0;
 	while (argv[i])
 	{
+		j = 0;
 		while(argv[i][j])
 		{
 			if (ft_isalpha(argv[i][j]))

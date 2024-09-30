@@ -11,13 +11,16 @@ int get_minimum(t_node *a)
 	size_l = list_size(a);
 	min = a->data;
 	temp = a;
+	// printf("size_l = %d\n", temp -> data);
 	while (i < size_l)
 	{
 		if (temp->data < min)
 			min = temp->data;
+		// printf("temp->data = %d\n", temp->data);
 		temp = temp->next;
 		i++;
 	}
+	// printf("min = %d\n", min);
 	return (min);
 }
 

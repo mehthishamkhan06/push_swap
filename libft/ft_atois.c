@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_atoi_overflow(long long answer, int sign)
+void	ft_atoi_overflow(size_t answer, int sign)
 {
-	if (answer >= LLONG_MAX && sign == -1)
+	if (answer > 2147483647 && sign == -1)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
 	}
-	if (answer >= LLONG_MAX && sign == 1)
+	if (answer > 2147483647 && sign == 1)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
@@ -28,14 +28,14 @@ void	ft_atoi_overflow(long long answer, int sign)
 
 int	ft_atoi(char *str)
 {
-	unsigned long long	answer;
-	unsigned long long	temp_answer;
-	int					sign;
-	int					i;
+	size_t	answer;
+	size_t	temp_answer;
+	int		sign;
+	int		i;
 
 	answer = 0;
 	sign = 1;
-	i = 0;	
+	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -71,19 +71,19 @@ void	free_list(char **tab)
 }
 
 
-void	ft_atoi_list_overflow(long long answer, int sign, char **tab)
+void	ft_atoi_list_overflow(size_t answer, int sign, char **tab)
 {
-	if (answer >= LLONG_MAX && sign == -1)
+	if (answer > 2147483647 && sign == -1)
 		free_list(tab);
-	if (answer >= LLONG_MAX && sign == 1)
+	if (answer > 2147483647 && sign == 1)
 		free_list(tab);
 }
 int	ft_atoi_list(char **tab, char *str)
 {
-	long long		answer;
-	long long		temp_answer;
-	int			sign;
-	int			i;
+	size_t	answer;
+	size_t	temp_answer;
+	int		sign;
+	int		i;
 
 	answer = 0;
 	sign = 1;
