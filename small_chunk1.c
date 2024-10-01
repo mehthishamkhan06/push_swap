@@ -18,7 +18,6 @@ void	sort_three_continue(t_node **a)
 
 void	sort_three(t_node **a)
 {
-	// printf("3:%d", (*a)->data);
 	if ((*a) -> data > (*a) -> next -> data)
 	{
 		if ((*a) -> data < (*a) -> prev -> data
@@ -67,8 +66,6 @@ void    sort_four(t_node **a, t_node **b)
 
 	min = get_minimum(*a);
 	pos = get_pos(*a, min);
-	// printf("a next = %d\n", (*a) -> next -> next -> next -> data);
-	// printf("pos = %d\n", pos);
 	if (pos == 0)
 		sort_four_common(a, b);
 	else if (pos == 1)
@@ -78,6 +75,5 @@ void    sort_four(t_node **a, t_node **b)
 			return ;
 		sort_four_common(a, b);
 	}
-	// printf("TOP : %d\n", (*a)->data);
 	sort_four_continuation(a, b, pos);
 }
