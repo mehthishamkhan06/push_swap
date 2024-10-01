@@ -13,6 +13,7 @@ void arg_error(char *args)
         int i;
     	
 		i = 0;
+		// printf("%s\n", args);
 		while (args[i] == ' ')
 		{
 			i++;

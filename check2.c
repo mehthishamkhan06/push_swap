@@ -21,7 +21,7 @@ bool    is_alpha_string(char **argv)
 	return (false);
 }
 
-int	is_duplicate_str(char **argv)
+int	is_duplicate_str(char **argv, char *args)
 {
 	int	i;
 	int	j;
@@ -33,7 +33,7 @@ int	is_duplicate_str(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_atoi_list(argv, argv[i]) == ft_atoi_list(argv, argv[j]))
+			if (ft_atoi_list(argv, argv[i], args) == ft_atoi_list(argv, argv[j], args))
 				return (1);
 			j++;
 		}
@@ -48,9 +48,9 @@ bool	invalid_input(char **argv)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while(argv[i])
 	{
+		j = 0;
 		while (argv[i][j])
 		{
 			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
@@ -69,6 +69,7 @@ void	ft_error_continues(char *args)
 	int		i;
 	char	**tab;
 
+
 	i = 0;
 	if (args[0] == 0)
 	{
@@ -76,7 +77,7 @@ void	ft_error_continues(char *args)
 		exit(0);
 	}
 	tab = ft_split(args, ' ');
-	if (invalid_input(tab) || is_alpha_string(tab) || is_duplicate_str(tab))
+	if (invalid_input(tab) || is_alpha_string(tab) || is_duplicate_str(tab, args))
 	{
 		while (tab[i])
 		{
@@ -84,6 +85,7 @@ void	ft_error_continues(char *args)
 			i++;
 		}
 		free(tab);
+		printf("HI\n");
 		free(args);
 		write (2, "Error\n", 6);
 		exit(1);

@@ -11,9 +11,14 @@ int	valid_argument_check(char *argv[])
 		int j;
     	
 		i = 1;
-		j = 0;
         while (argv[i])
 		{
+			j = 0;
+			if (!argv[i][j])
+			{
+				write(2, "Error\n", 6);
+				return(0);
+			}
 			while (argv[i][j] && argv[i][j] == ' ')
 			{
 				j++;
@@ -36,10 +41,11 @@ int main(int argc, char *argv[])
 
 	args = "";
 	check_free = 0;
+
 	if (argc > 1)
 	{
 		if (valid_argument_check(argv) == 0)
-			return(1);
+			exit(1);
 		i = 1;
 		while (argv[i])
 		{

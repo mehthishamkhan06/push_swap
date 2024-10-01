@@ -7,13 +7,9 @@ else it return (1) meaning the list is not sorted.
 */
 int	already_sorted(t_node *node)
 {
-	int i;
-	int length;
 	t_node *temp;
 
 	temp = node;
-	length = list_size(node);
-	i = 0;
 	while (temp->next != node)
     {
         if (temp->data > temp->next->data)
