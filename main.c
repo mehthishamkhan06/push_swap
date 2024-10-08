@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 16:39:41 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/10/08 16:39:43 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char *argv[])
@@ -21,7 +33,6 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 		arg_error(args);
-		// printf("%s\n", args);
 		push_swap(argc, args);
 	}
 	return (0);

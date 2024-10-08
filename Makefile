@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/08 16:35:49 by mohkhan           #+#    #+#              #
+#    Updated: 2024/10/08 16:35:52 by mohkhan          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS			=	push_swap.c libft/ft_split.c libft/ft_atois.c arg_check.c error_checks.c fns.c \
 					initialize_alias.c list_sort.c small_chunk1.c small_chunk2.c  \
 					libft/ft_strjoin.c libft/ft_isdigit.c libft/ft_strlen.c libft/ft_strdup.c \

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 16:39:29 by mohkhan           #+#    #+#             */
+/*   Updated: 2024/10/08 16:39:31 by mohkhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	initialize_stack(t_node **a, char *args)
@@ -15,7 +27,6 @@ void	initialize_stack(t_node **a, char *args)
 		append_at_end(a, ft_atoi_list(array, array[j], args));
 		j++;
 	}
-		// printf("args: %d\n", (*a)->data);
 	while (array[i])
 		free(array[i++]);
 	free(array);
@@ -31,8 +42,6 @@ void	list_sorter(t_node **a, t_node **b, t_node **tempa)
 		sort_s_chunk(tempa, b, len);
 	if (len > 34 && len <= 134)
 		sort_m_chunk(tempa, b);
-	if (len > 134 && len <= 500)
-		sort_l_chunk(tempa, b);
-	if (len > 500)
+	if (len > 134)
 		sort_l_chunk(tempa, b);
 }
