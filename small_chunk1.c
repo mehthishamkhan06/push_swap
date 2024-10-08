@@ -1,7 +1,13 @@
 #include "push_swap.h"
 
+void	sort_two(t_node **a)
+{
+	if ((*a)->data > (*a)->next->data)
+		sa(a);
+}
+
 void	sort_three_continue(t_node **a)
-{	
+{
 	if ((*a)->data < (*a)->next->data)
 	{
 		if ((*a)-> data < (*a)->prev->data
@@ -18,62 +24,32 @@ void	sort_three_continue(t_node **a)
 
 void	sort_three(t_node **a)
 {
-	if ((*a) -> data > (*a) -> next -> data)
+	if ((*a)-> data > (*a)-> next -> data)
 	{
-		if ((*a) -> data < (*a) -> prev -> data
+		if ((*a)-> data < (*a)-> prev -> data
 			&& (*a)->next->data < (*a)->prev->data)
 			sa(a);
-		else if((*a) -> data > (*a) -> prev -> data
-			&& (*a) -> next -> data > (*a) -> prev -> data)
+		else if ((*a)-> data > (*a)-> prev -> data
+			&& (*a)-> next -> data > (*a)-> prev -> data)
 		{
 			sa(a);
 			rra(a);
 		}
-		else if ((*a) -> data > (*a) -> prev -> data 
-			&& (*a) -> next -> data < (*a) -> prev -> data)
+		else if ((*a)-> data > (*a)-> prev -> data
+			&& (*a)-> next -> data < (*a)-> prev -> data)
 			ra(a);
 	}
 	sort_three_continue(a);
 }
 
-void	sort_four_common(t_node **a, t_node	**b)
+void	sort_s_chunk(t_node **a, t_node **b, int len)
 {
-	pb(a, b);
-	sort_three(a);
-	pa(a, b);
-}
-
-void sort_four_continuation(t_node **a, t_node **b, int pos)
-{
-	if(pos == 2)
-	{
-		rra(a);
-		rra(a);
-		sort_four_common(a, b);
-	}
-	else if(pos == 3)
-	{
-		rra(a);
-		if (already_sorted(*a))
-			return ;
-		sort_four_common(a, b);
-	}
-}
-void    sort_four(t_node **a, t_node **b)
-{
-	int	min;
-	int	pos;
-
-	min = get_minimum(*a);
-	pos = get_pos(*a, min);
-	if (pos == 0)
-		sort_four_common(a, b);
-	else if (pos == 1)
-	{
-		sa(a);
-		if (already_sorted(*a))
-			return ;
-		sort_four_common(a, b);
-	}
-	sort_four_continuation(a, b, pos);
+	if (len == 2)
+		sort_two(a);
+	if (len == 3)
+		sort_three(a);
+	if (len == 4)
+		sort_four(a, b);
+	if (len > 4 && len < 35)
+		sort_more(a, b);
 }

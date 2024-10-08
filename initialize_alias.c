@@ -11,7 +11,7 @@ void	custom_alias(t_node **alias, int data)
 this function helps to sort large numbers using the alias list technique
 it basically checks for large nmbers and gives them an alias and then sorts them.
 */
- void initialize_alias(t_node **node, t_node **alias)
+ void	initialize_alias(t_node **node, t_node **alias)
 {
     // printf("a : %d\n", (*node)print->data);
     int i[5];
@@ -38,7 +38,6 @@ it basically checks for large nmbers and gives them an alias and then sorts them
             new = new->next;
             i[1]++;
         }
-
         // After finding the rank (i[2]), add it to the alias list
         custom_alias(alias, i[2]);
 

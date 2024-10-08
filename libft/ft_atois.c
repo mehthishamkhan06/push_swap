@@ -1,26 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atois.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mohkhan <mohkhan@student.42abudhabi.ae>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:13:21 by mohkhan           #+#    #+#             */
-/*   Updated: 2024/06/24 12:13:33 by mohkhan          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../push_swap.h"
+#include <limits.h>
 
 void	ft_atoi_overflow(size_t answer, int sign, char *str)
 {
-	if (answer > 2147483647 && sign == -1)
+	if (answer > 2147483648 && sign == -1)
 	{
 		write(2, "Error\n", 6);
 		free(str);
 		exit(1);
 	}
-	if (answer > 2147483647 && sign == 1)
+	if (answer > INT_MAX && sign == 1)
 	{
 		write(2, "Error\n", 6);
 		free(str);
@@ -70,18 +59,17 @@ void	free_list(char **tab, char *args)
 	free(tab);
 	free(args);
 	write(2, "Error\n", 6);
-
 	exit(1);
 }
 
-
 void	ft_atoi_list_overflow(size_t answer, int sign, char **tab, char *args)
 {
-	if (answer > 2147483647 && sign == -1)
+	if (answer > 2147483648 && sign == -1)
 		free_list(tab, args);
-	if (answer > 2147483647 && sign == 1)
+	if (answer > INT_MAX && sign == 1)
 		free_list(tab, args);
 }
+
 int	ft_atoi_list(char **tab, char *str, char *args)
 {
 	size_t	answer;
@@ -103,7 +91,6 @@ int	ft_atoi_list(char **tab, char *str, char *args)
 		answer = answer * 10 + str[i++] - '0';
 		if (temp_answer > answer)
 		{
-			printf("heellooooo\n");
 			free_list(tab, args);
 			exit(0);
 		}

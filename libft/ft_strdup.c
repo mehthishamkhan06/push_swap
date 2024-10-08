@@ -1,7 +1,5 @@
 #include "../push_swap.h"
 
-
-
 char	*ft_strdup(char *src)
 {
 	int		i;

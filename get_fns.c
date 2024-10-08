@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int get_minimum(t_node *a)
+int	get_minimum(t_node *a)
 {
 	int		size_l;
 	int		min;
@@ -45,12 +45,12 @@ int	get_maximum(t_node *a)
 	return (max);
 }
 
-int get_pos(t_node *a, int data)
+int	get_pos(t_node *a, int data)
 {
-	int pos;
-	int i;
-	int size_l;
-	t_node *temp;
+	int		pos;
+	int		i;
+	int		size_l;
+	t_node	*temp;
 
 	pos = 0;
 	i = 0;
@@ -65,4 +65,20 @@ int get_pos(t_node *a, int data)
 		i++;
 	}
 	return (pos);
+}
+
+void	ft_free(t_node **node)
+{
+	t_node	*temp;
+	t_node	*next;
+
+	temp = *node;
+	next = NULL;
+	while (temp->next != *node)
+	{
+		next = temp->next;
+		free(temp);
+		temp = next;
+	}
+	free(temp);
 }

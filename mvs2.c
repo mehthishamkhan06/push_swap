@@ -2,13 +2,13 @@
 
 void	ra(t_node **a)
 {
-	(*a) = (*a) -> next;
+	(*a) = (*a)-> next;
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_node **b)
 {
-	(*b) = (*b) -> next;
+	(*b) = (*b)-> next;
 	write(1, "rb\n", 3);
 }
 
@@ -21,12 +21,12 @@ void	rr(t_node **a, t_node **b)
 
 void	rra(t_node **a)
 {
-	(*a) = (*a) -> prev;
+	(*a) = (*a)-> prev;
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_node **b)
 {
-	(*b) = (*b) -> prev;
+	(*b) = (*b)-> prev;
 	write(1, "rrb\n", 4);
 }

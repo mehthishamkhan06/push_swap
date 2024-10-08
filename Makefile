@@ -1,7 +1,7 @@
-SRCS			=	push_swap.c libft/ft_split.c libft/ft_atois.c arg_check.c check2.c initializer.c \
-					initialize_alias.c sort_check.c small_chunk1.c small_chunk2.c  \
-					sorter.c libft/ft_strjoin.c libft/ft_isdigit.c libft/ft_strlen.c libft/ft_strdup.c \
-					mvs.c mvs2.c get_pos.c libft/ft_isalpha.c m_chunk.c main.c
+SRCS			=	push_swap.c libft/ft_split.c libft/ft_atois.c arg_check.c error_checks.c fns.c \
+					initialize_alias.c list_sort.c small_chunk1.c small_chunk2.c  \
+					libft/ft_strjoin.c libft/ft_isdigit.c libft/ft_strlen.c libft/ft_strdup.c \
+					mvs.c mvs2.c get_fns.c libft/ft_isalpha.c M_and_L_chunk.c main.c
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -23,7 +23,7 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
-				@echo "cleaned"
+				@echo "fcleaned"
 
 re:				fclean $(NAME)
 				@echo "recreated"

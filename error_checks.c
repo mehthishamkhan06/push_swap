@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-bool    is_alpha_string(char **argv)
+bool	is_alpha_string(char **argv)
 {
 	int	i;
 	int	j;
@@ -10,7 +10,7 @@ bool    is_alpha_string(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (ft_isalpha(argv[i][j]))
 				return (true);
@@ -33,7 +33,8 @@ int	is_duplicate_str(char **argv, char *args)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_atoi_list(argv, argv[i], args) == ft_atoi_list(argv, argv[j], args))
+			if (ft_atoi_list(argv, argv[i], args)
+				== ft_atoi_list(argv, argv[j], args))
 				return (1);
 			j++;
 		}
@@ -48,7 +49,7 @@ bool	invalid_input(char **argv)
 	int	j;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = 0;
 		while (argv[i][j])
@@ -69,7 +70,6 @@ void	ft_error_continues(char *args)
 	int		i;
 	char	**tab;
 
-
 	i = 0;
 	if (args[0] == 0)
 	{
@@ -77,17 +77,14 @@ void	ft_error_continues(char *args)
 		exit(0);
 	}
 	tab = ft_split(args, ' ');
-	if (invalid_input(tab) || is_alpha_string(tab) || is_duplicate_str(tab, args))
+	if (invalid_input(tab) || is_alpha_string(tab)
+		|| is_duplicate_str(tab, args))
 	{
 		while (tab[i])
-		{
-			free(tab[i]);
-			i++;
-		}
+			free(tab[i++]);
 		free(tab);
-		printf("HI\n");
 		free(args);
-		write (2, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	while (tab[i])
